@@ -1,0 +1,65 @@
+{
+  "name": "react_amplitude",
+  "version": "1.0.0",
+  "main": "index.ts",
+  "repository": "git@github.com:fifthsage/react_amplitude.git",
+  "author": "ohsung cho <fifthsage@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "@types/react-dom": "^16.9.1",
+    "amplitude-js": "^5.3.1",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0"
+  },
+  "devDependencies": {
+    "@babel/preset-env": "^7.6.2",
+    "@babel/preset-react": "^7.0.0",
+    "@babel/preset-typescript": "^7.6.0",
+    "@types/amplitude-js": "^4.4.4",
+    "@types/enzyme": "^3.10.3",
+    "@types/jest": "^24.0.18",
+    "@types/react-test-renderer": "^16.9.0",
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.14.0",
+    "enzyme-to-json": "^3.4.0",
+    "eslint": "^6.4.0",
+    "eslint-plugin-react": "^7.14.3",
+    "husky": "^3.0.5",
+    "jest": "^24.9.0",
+    "lint-staged": "^9.4.0",
+    "react-test-renderer": "^16.9.0",
+    "ts-jest": "^24.1.0",
+    "typescript": "^3.6.3"
+  },
+  "scripts": {
+    "compile": "rm -rf dist/* && babel src --out-dir dist --ignore */**/__test__ --source-maps",
+    "test": "jest",
+    "test:update": "jest -u",
+    "test:ci": "jest --runInBand",
+    "test:watch": "jest --watch",
+    "lint": "eslint --ext js,ts src"
+  },
+  "lint-staged": {
+    "src/**/*.ts": [
+      "eslint --fix",
+      "git add",
+      "jest --bail --findRelatedTests"
+    ]
+  },
+  "jest": {
+    "testPathIgnorePatterns": [
+      "\\.snap$",
+      "<rootDir>/node_modules/"
+    ],
+    "testRegex": "(/__tests__/.*|\\.(test|spec))\\.((ts|tsx))$",
+    "setupFilesAfterEnv": [
+      "<rootDir>/test-helper.js"
+    ],
+    "cacheDirectory": ".jest/cache"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  }
+}
