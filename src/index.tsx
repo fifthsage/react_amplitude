@@ -3,7 +3,7 @@ import React, { useState, useEffect, useContext, createContext } from "react";
 let amplitude = null;
 
 if (typeof window !== "undefined") {
-  amplitude = require("amplitude-js");
+  amplitude = require("amplitude-js/amplitude");
 }
 
 const instance = amplitude ? amplitude.getInstance() : null;
