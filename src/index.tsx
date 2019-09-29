@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext, createContext } from "react";
 import amplitude from "amplitude-js";
 
-const instance = amplitude.getInstance();
+const instance = typeof window !== "undefined" ? amplitude.getInstance() : null;
 
 interface AmplitudeProviderProps {
   logEvent: Function;
@@ -22,12 +22,14 @@ function useProvideAmplitude(): AmplitudeProviderProps {
   const [event, setEvent] = useState<LogEventProps | null>(null);
 
   const logEvent = (key: string, payload: { [key: string]: any }) => {
-    instance.logEvent(key, payload);
+    if (instance) {
+      instance.logEvent(key, payload);
 
-    setEvent(() => ({
-      key: key,
-      payload: payload
-    }));
+      setEvent(() => ({
+        key: key,
+        payload: payload
+      }));
+    }
 
     return;
   };
@@ -45,7 +47,9 @@ function useProvideAmplitude(): AmplitudeProviderProps {
 export const ProvideAmplitude = (props: any) => {
   const { apiKey, userId = null, config = {}, children } = props;
 
-  instance.init(apiKey, userId, config);
+  if (instance) {
+    instance.init(apiKey, userId, config);
+  }
 
   const _amplitude = useProvideAmplitude();
 

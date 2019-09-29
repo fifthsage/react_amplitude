@@ -12,7 +12,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __importStar(require("react"));
 var amplitude_js_1 = __importDefault(require("amplitude-js"));
-var instance = amplitude_js_1.default.getInstance();
+var instance = typeof window !== "undefined" ? amplitude_js_1.default.getInstance() : null;
 var amplitudeContext = react_1.createContext({
     logEvent: function () { },
     event: null
@@ -20,11 +20,13 @@ var amplitudeContext = react_1.createContext({
 function useProvideAmplitude() {
     var _a = react_1.useState(null), event = _a[0], setEvent = _a[1];
     var logEvent = function (key, payload) {
-        instance.logEvent(key, payload);
-        setEvent(function () { return ({
-            key: key,
-            payload: payload
-        }); });
+        if (instance) {
+            instance.logEvent(key, payload);
+            setEvent(function () { return ({
+                key: key,
+                payload: payload
+            }); });
+        }
         return;
     };
     react_1.useEffect(function () {
@@ -37,7 +39,9 @@ function useProvideAmplitude() {
 }
 exports.ProvideAmplitude = function (props) {
     var apiKey = props.apiKey, _a = props.userId, userId = _a === void 0 ? null : _a, _b = props.config, config = _b === void 0 ? {} : _b, children = props.children;
-    instance.init(apiKey, userId, config);
+    if (instance) {
+        instance.init(apiKey, userId, config);
+    }
     var _amplitude = useProvideAmplitude();
     return (react_1.default.createElement(amplitudeContext.Provider, { value: _amplitude }, children));
 };
