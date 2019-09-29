@@ -1,7 +1,7 @@
 {
   "name": "@fifthsage/react-amplitude",
   "version": "1.0.0",
-  "main": "dist/index.jsx",
+  "main": "dist/index.js",
   "repository": "git@github.com:fifthsage/react_amplitude.git",
   "author": "ohsung cho <fifthsage@gmail.com>",
   "license": "MIT",
@@ -21,6 +21,7 @@
     "@types/react-test-renderer": "^16.9.0",
     "babel": "^6.23.0",
     "babel-cli": "^6.26.0",
+    "babel-plugin-transform-class-properties": "^6.24.1",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.14.0",
     "enzyme-to-json": "^3.4.0",

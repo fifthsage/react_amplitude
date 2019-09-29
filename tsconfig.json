@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
-    "target": "esnext",
+    "target": "es5",
+    "lib": ["es5", "es6", "dom"],
     "module": "commonjs",
     "moduleResolution": "node",
     "lib": ["es2017", "esnext.asynciterable"],
@@ -11,7 +12,7 @@
     "strict": true,
     "esModuleInterop": true,
     "noImplicitReturns": true,
-    "jsx": "preserve"
+    "jsx": "react"
   },
   "include": ["src/**/*"]
 }

@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from "react";
-import { ProvideAmplitude, useAmplitude } from "../src";
+import { ProvideAmplitude, useAmplitude } from "../dist/index.js";
 import { shallow, mount } from "enzyme";
 import toJson from "enzyme-to-json";
 
