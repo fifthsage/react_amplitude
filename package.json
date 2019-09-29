@@ -50,6 +50,9 @@
       "eslint --fix",
       "git add",
       "jest --bail --findRelatedTests"
+    ],
+    "dist/**/*": [
+      "git add"
     ]
   },
   "jest": {
@@ -65,7 +68,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged && yarn build"
+      "pre-commit": "yarn build && lint-staged"
     }
   }
 }
