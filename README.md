@@ -5,7 +5,7 @@
 # USAGE
 
 ```jsx
-import { ProvideAmplitude, useAmplitude } from "fifthsage/react_amplitude";
+import { ProvideAmplitude, useAmplitude } from "@fifthsage/react_amplitude";
 
 const App = props => {
   const amplitudeEvent = useAmplitude();
