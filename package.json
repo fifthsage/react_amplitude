@@ -1,5 +1,5 @@
 {
-  "name": "@fifthsage/react_amplitude",
+  "name": "@fifthsage/react-amplitude",
   "version": "1.0.0",
   "main": "dist/index.tsx",
   "repository": "git@github.com:fifthsage/react_amplitude.git",
