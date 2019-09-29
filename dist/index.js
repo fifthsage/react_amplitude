@@ -6,13 +6,13 @@ var __importStar = (this && this.__importStar) || function (mod) {
     result["default"] = mod;
     return result;
 };
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __importStar(require("react"));
-var amplitude_js_1 = __importDefault(require("amplitude-js"));
-var instance = typeof window !== "undefined" ? amplitude_js_1.default.getInstance() : null;
+var amplitude = null;
+if (typeof window !== "undefined") {
+    amplitude = require("amplitude-js");
+}
+var instance = amplitude ? amplitude.getInstance() : null;
 var amplitudeContext = react_1.createContext({
     logEvent: function () { },
     event: null
