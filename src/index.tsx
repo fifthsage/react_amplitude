@@ -1,7 +1,12 @@
 import React, { useState, useEffect, useContext, createContext } from "react";
-import amplitude from "amplitude-js";
 
-const instance = typeof window !== "undefined" ? amplitude.getInstance() : null;
+let amplitude = null;
+
+if (typeof window !== "undefined") {
+  amplitude = require("amplitude-js");
+}
+
+const instance = amplitude ? amplitude.getInstance() : null;
 
 interface AmplitudeProviderProps {
   logEvent: Function;
