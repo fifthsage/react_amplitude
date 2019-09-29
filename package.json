@@ -40,7 +40,7 @@
     "build": "rm -rf ./dist && tsc",
     "test": "jest",
     "test:update": "jest -u",
-    "test:ci": "jest --runInBand",
+    "test:ci": "jest -u --runInBand",
     "test:watch": "jest --watch",
     "lint": "eslint --ext js,ts src"
   },
