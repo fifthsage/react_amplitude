@@ -4,15 +4,31 @@ exports[`suite should render 1`] = `
 <ContextProvider
   value={
     Object {
-      "event": null,
+      "event": Object {
+        "key": null,
+        "payload": Object {},
+      },
       "logEvent": [Function],
     }
   }
 />
 `;
 
-exports[`suite should render with Log Test 1`] = `
-<Component
+exports[`suite should send event with Consumer 1`] = `
+<ProvideAmplitude
+  apiKey="a41e51ccfa11b3a8c9667d0c2eee620e"
+>
+  <button
+    onClick={[Function]}
+  >
+    send 
+    TEST_EVENT
+  </button>
+</ProvideAmplitude>
+`;
+
+exports[`suite should send event with useContext 1`] = `
+<ProvideAmplitude
   apiKey="a41e51ccfa11b3a8c9667d0c2eee620e"
 >
   <LogTestWrapper>
@@ -27,5 +43,5 @@ exports[`suite should render with Log Test 1`] = `
       </button>
     </div>
   </LogTestWrapper>
-</Component>
+</ProvideAmplitude>
 `;
