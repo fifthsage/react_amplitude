@@ -11,7 +11,7 @@ exports[`suite should render 1`] = `
 />
 `;
 
-exports[`suite should render with Log Test Component 1`] = `
+exports[`suite should render with Log Test 1`] = `
 <ProvideAmplitude
   apiKey="a41e51ccfa11b3a8c9667d0c2eee620e"
 >
