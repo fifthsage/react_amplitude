@@ -10,7 +10,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __importStar(require("react"));
 var amplitude = null;
 if (typeof window !== "undefined") {
-    amplitude = require("amplitude-js");
+    amplitude = require("amplitude-js/amplitude");
 }
 var instance = amplitude ? amplitude.getInstance() : null;
 var amplitudeContext = react_1.createContext({
