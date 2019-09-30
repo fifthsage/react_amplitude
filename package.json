@@ -43,7 +43,7 @@
     "test:update": "jest -u",
     "test:ci": "jest -u --runInBand",
     "test:watch": "jest --watch",
-    "lint": "eslint --ext js,ts src"
+    "lint": "eslint --ext js,ts,jsx,tsx src"
   },
   "lint-staged": {
     "src/**/*.ts": [
@@ -68,7 +68,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "yarn build && lint-staged"
+      "pre-commit": "lint-staged"
     }
   }
 }
