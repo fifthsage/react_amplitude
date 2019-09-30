@@ -53,7 +53,13 @@ function useProvideAmplitude(): AmplitudeProviderProps {
 }
 
 export const ProvideAmplitude = (props: any) => {
-  const { apiKey, userId = null, config = {}, children } = props;
+  const {
+    apiKey,
+    userId = null,
+    config = {},
+    disabled = false,
+    children
+  } = props;
 
   const defaultOptions = {
     saveEvents: true,
@@ -65,7 +71,7 @@ export const ProvideAmplitude = (props: any) => {
     }
   };
 
-  if (instance) {
+  if (instance && !disabled) {
     instance.init(apiKey, userId, Object.assign(defaultOptions, config));
   }
 

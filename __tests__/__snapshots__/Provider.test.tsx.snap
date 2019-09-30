@@ -21,8 +21,7 @@ exports[`suite should send event with Consumer 1`] = `
   <button
     onClick={[Function]}
   >
-    send 
-    TEST_EVENT
+    send
   </button>
 </ProvideAmplitude>
 `;
