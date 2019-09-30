@@ -1,6 +1,7 @@
 # REACT AMPLITUDE
 
 [![Build Status](https://travis-ci.org/fifthsage/react_amplitude.svg?branch=master)](https://travis-ci.org/fifthsage/react_amplitude)
+[![codecov](https://codecov.io/gh/fifthsage/react_amplitude/branch/master/graph/badge.svg)](https://codecov.io/gh/fifthsage/react_amplitude)
 
 # USAGE
 
