@@ -64,7 +64,8 @@
     "setupFilesAfterEnv": [
       "<rootDir>/test-helper.js"
     ],
-    "cacheDirectory": ".jest/cache"
+    "cacheDirectory": ".jest/cache",
+    "collectCoverage": true
   },
   "husky": {
     "hooks": {

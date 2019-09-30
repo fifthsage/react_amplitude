@@ -1,3 +1,4 @@
 .jest
 dist
+coverage
 node_modules
