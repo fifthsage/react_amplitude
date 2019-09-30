@@ -8,27 +8,31 @@ cache:
 install:
   - yarn global add codecov
   - yarn
-script:
-  - lint-staged
-  - yarn test:ci && codecov
-  - yarn build
-before_deploy:
-  - git config --local user.name "ohsung cho"
-  - git config --local user.email "fithsage@gmail.com"
-  - export TRAVIS_TAG=${TRAVIS_TAG:-$(date +'%Y%m%d%H%M%S')-$(git log --format=%h -1)}
-  - git tag $TRAVIS_TAG
-deploy:
-  - provider: releases
-    api_key: $GH_TOKEN
-    file_glob: true
-    file: "dist/*/**"
-    skip_cleanup: true
-    on:
-      tags: true
-  - provider: npm
-    email: fifthsage@gmail.com
-    api_key:
-      secure: $NPM_TOKEN
-    on:
-      tags: true
-      repo: fifthsage/react_amplitude
+jobs:
+  include:
+    - stage: Build and test
+      script:
+        - lint-staged
+        - yarn test:ci && codecov
+        - yarn build
+    - stage: npm release
+      script: yarn build
+      deploy:
+        - provider: releases
+          api_key: $GH_TOKEN
+          file_glob: true
+          file: "dist/*/**"
+          skip_cleanup: true
+          on:
+            tags: true
+        - provider: npm
+          email: "fifthsage@gmail.com"
+          api_key: "$NPM_TOKEN"
+          skip_cleanup: true
+          on:
+            tags: true
+            repo: fifthsage/react_amplitude
+branches:
+  only:
+    - master
+    - /^v[0-9]+.*$/
