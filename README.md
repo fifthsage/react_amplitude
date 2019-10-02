@@ -5,7 +5,7 @@
 
 # USAGE
 
-### 컨텍스트 사용
+### Use Context
 
 ```jsx
 import { ProvideAmplitude, useAmplitude } from "@fifthsage/react_amplitude";
@@ -30,7 +30,7 @@ const App = props => {
 };
 ```
 
-### 컨슈머 사용
+### User Consumer
 
 ```jsx
 import { ProvideAmplitude, ConsumeAmplitude } from "@fifthsage/react_amplitude";
