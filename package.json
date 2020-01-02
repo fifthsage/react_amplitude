@@ -1,6 +1,6 @@
 {
   "name": "@fifthsage/react-amplitude",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "main": "dist/index.js",
   "repository": "git@github.com:fifthsage/react_amplitude.git",
   "author": "ohsung cho <fifthsage@gmail.com>",
