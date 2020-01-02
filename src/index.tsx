@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext, createContext } from "react";
+import React, { useState, useContext, createContext } from "react";
 
 let amplitude = null;
 
@@ -41,10 +41,6 @@ function useProvideAmplitude(): AmplitudeProviderProps {
 
     return;
   };
-
-  useEffect(() => {
-    return;
-  }, []);
 
   return {
     event,
